@@ -24,14 +24,23 @@ namespace CafeteiraEletrica
             }
         }
 
-        public void Preparando()
-        {
-            throw new NotImplementedException();
-        }
-
         internal override void Prepare()
         {
+            EstaPreparando = true;
             _api.SetWarmerState(WarmerState.ON);
+        }
+
+        private protected override void RecipienteDeContencaoRemovido()
+        {
+            if (EstaPreparando && _api.GetWarmerPlateStatus() != WarmerPlateStatus.WARMER_EMPTY) return;
+
+            _api.SetWarmerState(WarmerState.OFF);
+            InterrompaProducao();
+        }
+
+        public void Preparando()
+        {
+            RecipienteDeContencaoRemovido();
         }
     }
 }
