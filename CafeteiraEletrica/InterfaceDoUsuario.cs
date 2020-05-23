@@ -20,7 +20,8 @@ namespace CafeteiraEletrica
         {
             if (_fonteDeAguaQuente.EstaPronto && _recipienteDeContencao.EstaPronto)
             {
-
+                _fonteDeAguaQuente.Prepare();
+                _recipienteDeContencao.Prepare();
             }
         }
 

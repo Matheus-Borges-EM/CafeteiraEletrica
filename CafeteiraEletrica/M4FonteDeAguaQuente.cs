@@ -27,5 +27,11 @@ namespace CafeteiraEletrica
         {
             throw new NotImplementedException();
         }
+
+        internal override void Prepare()
+        {
+            _api.SetBoilerState(BoilerState.ON);
+            _api.SetReliefValveState(ReliefValveState.CLOSED);
+        }
     }
 }
