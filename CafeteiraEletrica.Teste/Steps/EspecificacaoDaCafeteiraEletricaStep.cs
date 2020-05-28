@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using CafeteiraEletrica.Teste.Stubs;
 using CoffeeMakerApi;
 using NUnit.Framework;
@@ -57,14 +55,7 @@ namespace CafeteiraEletrica.Teste.Steps
         [Given(@"que o preparo do café foi iniciado")]
         public void GivenQueOPreparoDoCafeFoiIniciado()
         {
-            GivenUmaFonteDeAguaQuente();
-            GivenQueAFonteContemAgua();
-            GivenUmRecipienteDeContencao();
-            GivenQueORecipienteEstejaAcoplado();
-            GivenUmInterfaceDeUsuario();
-            GivenPrecionadoOBotaoDeInicio();
-            WhenIniciadoOPreparoDoCafe();
-            ThenOPreparoDoCafeEIniciado();
+            Inicializacao();
         }
 
         [Given(@"o preparo do café e interrompido")]
@@ -206,5 +197,17 @@ namespace CafeteiraEletrica.Teste.Steps
             throw new PendingStepException();
         }
         #endregion
+
+        private void Inicializacao()
+        {
+            GivenUmaFonteDeAguaQuente();
+            GivenQueAFonteContemAgua();
+            GivenUmRecipienteDeContencao();
+            GivenQueORecipienteEstejaAcoplado();
+            GivenUmInterfaceDeUsuario();
+            GivenPrecionadoOBotaoDeInicio();
+            WhenIniciadoOPreparoDoCafe();
+            ThenOPreparoDoCafeEIniciado();
+        }
     }
 }
