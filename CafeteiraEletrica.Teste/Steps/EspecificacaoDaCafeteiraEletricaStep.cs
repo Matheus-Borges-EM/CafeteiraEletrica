@@ -13,7 +13,7 @@ namespace CafeteiraEletrica.Teste.Steps
         private M4RecipienteDeContencao _recipienteDeContencao;
         private M4InterfaceDoUsuario _interfaceDoUsuario;
 
-        private CoffeeMakerApiStub _coffeeMakerApi = new CoffeeMakerApiStub();
+        private readonly CoffeeMakerApiStub _coffeeMakerApi = new CoffeeMakerApiStub();
        
         #region Given
        

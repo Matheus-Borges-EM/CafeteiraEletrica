@@ -15,5 +15,7 @@ namespace CafeteiraEletrica
         internal abstract void RetomeRecipienteDeContencao();
 
         internal abstract void InterrompaRecipienteDeContencao();
+
+        internal abstract void 
     }
 }

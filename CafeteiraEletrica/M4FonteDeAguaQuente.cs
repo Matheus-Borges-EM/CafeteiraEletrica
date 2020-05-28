@@ -11,6 +11,9 @@ namespace CafeteiraEletrica
     {
         private ICoffeeMakerApi _api;
 
+        private M4RecipienteDeContencao _recipienteDeContencao;
+        private M4InterfaceDoUsuario _interfaceDoUsuario;
+
         protected internal override bool EstaPronto => VerificaInicio(_api);
 
         public M4FonteDeAguaQuente(ICoffeeMakerApi api)
