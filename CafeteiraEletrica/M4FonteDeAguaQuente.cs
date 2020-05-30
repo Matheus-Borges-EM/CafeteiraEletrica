@@ -34,6 +34,7 @@ namespace CafeteiraEletrica
         {
             _api.SetBoilerState(BoilerState.ON);
             _api.SetReliefValveState(ReliefValveState.CLOSED);
+            EstaPreparando = true;
         }
     }
 }

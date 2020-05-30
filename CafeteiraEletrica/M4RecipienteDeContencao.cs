@@ -26,15 +26,14 @@ namespace CafeteiraEletrica
         }
 
         private protected override void RecipienteDeContencaoRemovido()
-        {
-            if (EstaPreparando && _api.GetWarmerPlateStatus() != WarmerPlateStatus.WARMER_EMPTY) return;
-
+        {           
             _api.SetWarmerState(WarmerState.OFF);
             InterrompaProducao();
         }
 
         public void Preparando()
         {
+            if (EstaPreparando && _api.GetWarmerPlateStatus() != WarmerPlateStatus.WARMER_EMPTY) return;
             RecipienteDeContencaoRemovido();
         }
     }

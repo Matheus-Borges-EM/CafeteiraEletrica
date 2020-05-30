@@ -19,6 +19,5 @@ namespace CafeteiraEletrica
                 _recipienteDeContencao.Prepare();
             }
         }
-
     }
 }
