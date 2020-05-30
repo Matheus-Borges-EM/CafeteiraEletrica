@@ -12,7 +12,7 @@ namespace CafeteiraEletrica
             _api = api;
         }
 
-        protected internal override bool EstaPronto
+        protected internal override bool PodeInicarPreparo
         {
             get {
                 return _api.GetBoilerStatus() == BoilerStatus.NOT_EMPTY;
@@ -42,6 +42,11 @@ namespace CafeteiraEletrica
             _api.SetReliefValveState(ReliefValveState.OPEN);
             _api.SetBoilerState(BoilerState.OFF);
             FinalizePreparo();
+        }
+
+        internal override void FinalizeCicloDePreparo()
+        {
+            _api.SetBoilerState(BoilerState.OFF);            
         }
     }
 }

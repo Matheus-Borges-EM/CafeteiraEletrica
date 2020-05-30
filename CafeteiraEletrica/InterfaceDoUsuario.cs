@@ -18,7 +18,7 @@ namespace CafeteiraEletrica
 
         protected void Iniciar()
         {
-            if (_fonteDeAguaQuente.EstaPronto && _recipienteDeContencao.EstaPronto)
+            if (_fonteDeAguaQuente.PodeInicarPreparo && _recipienteDeContencao.PodeIniciarPreparo)
             {
                 _fonteDeAguaQuente.Prepare();
                 _recipienteDeContencao.Prepare();

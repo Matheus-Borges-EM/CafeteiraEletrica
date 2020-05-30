@@ -14,7 +14,7 @@
         }
 
 
-        protected internal abstract bool EstaPronto { get; }
+        protected internal abstract bool PodeIniciarPreparo { get; }
 
         internal abstract void Prepare();
 

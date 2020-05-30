@@ -11,7 +11,7 @@ namespace CafeteiraEletrica
             _api = api;
         }
 
-        protected internal override bool EstaPronto
+        protected internal override bool PodeIniciarPreparo
         {
             get
             {

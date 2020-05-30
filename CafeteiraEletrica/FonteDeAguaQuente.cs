@@ -15,7 +15,7 @@ namespace CafeteiraEletrica
             _recipienteDeContencao = recipienteDeContencao;
         }
 
-        protected internal abstract bool EstaPronto { get; }
+        protected internal abstract bool PodeInicarPreparo { get; }
 
         internal abstract void Prepare();
 
@@ -27,9 +27,6 @@ namespace CafeteiraEletrica
 
         internal abstract void InterrompaProducao();
 
-        internal void FinalizeCicloDePreparo()
-        {
-            
-        }
+        internal abstract void FinalizeCicloDePreparo();
     }
 }

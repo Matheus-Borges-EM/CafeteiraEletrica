@@ -1,6 +1,7 @@
 using CafeteiraEletrica.Teste.Stubs;
 using CoffeeMakerApi;
 using NUnit.Framework;
+using System;
 using TechTalk.SpecFlow;
 
 namespace CafeteiraEletrica.Teste.Steps
@@ -71,6 +72,7 @@ namespace CafeteiraEletrica.Teste.Steps
         {
             GivenQueOPreparoDoCafeFoiIniciado();
             WhenORecipienteDeContecaoEExtraido();
+            ThenOPreparoDoCafeEInterrompido();
         }
 
         [Given(@"o café pronto para consumo")]
@@ -78,6 +80,7 @@ namespace CafeteiraEletrica.Teste.Steps
         {
             GivenQueOPreparoDoCafeFoiIniciado();
             WhenComcluidoOPreparoDoCafe();
+            ThenOCafeEstaProntoParaOConsumo();
         }
 
         [Given(@"precionado o botão de inicio")]
@@ -112,6 +115,7 @@ namespace CafeteiraEletrica.Teste.Steps
         {
             _coffeeMakerApi.SetWarmerPlateStatus(WarmerPlateStatus.WARMER_EMPTY);
             WhenIniciadoOPreparoDoCafe();
+            ThenOPreparoDoCafeEInterrompido();
         }
 
         [When(@"o recipiente de conteção e devolvido")]
@@ -119,6 +123,7 @@ namespace CafeteiraEletrica.Teste.Steps
         {
             _coffeeMakerApi.SetWarmerPlateStatus(WarmerPlateStatus.POT_EMPTY);
             WhenIniciadoOPreparoDoCafe();
+            ThenOPreparoDoCafeERetomado();
         }
 
         [When(@"comcluido o preparo do café")]
@@ -128,10 +133,11 @@ namespace CafeteiraEletrica.Teste.Steps
             _coffeeMakerApi.SetBoilerStatus(BoilerStatus.EMPTY);
             _fonteDeAguaQuente.Inicio(_interfaceDoUsuario, _recipienteDeContencao);
             _fonteDeAguaQuente.FinalizarPreparo();
+            
         }
 
-        [When(@"identificado o consumido completo")]
-        public void WhenIdentificadoOConsumidoCompleto()
+        [When(@"identificado o consumo completo")]
+        public void WhenIdentificadoOConsumoCompleto()
         {
             _coffeeMakerApi.SetWarmerPlateStatus(WarmerPlateStatus.WARMER_EMPTY);
             _recipienteDeContencao.CafeConsumidoPorCompleto();
@@ -140,7 +146,16 @@ namespace CafeteiraEletrica.Teste.Steps
         [When(@"identificado que ainda não foi consumido por completo")]
         public void WhenIdentificadoQueAindaNaoFoiConsumidoPorCompleto()
         {
-                
+            if (VerifiqueSeOCafeNaoFoiConsumidoPorCompleto())
+            {
+
+            }
+        }
+
+        private bool VerifiqueSeOCafeNaoFoiConsumidoPorCompleto()
+        {
+            return _coffeeMakerApi.GetWarmerPlateStatus() == WarmerPlateStatus.POT_NOT_EMPTY &&
+                   _coffeeMakerApi.GetWarmerState() == WarmerState.ON;
         }
 
         #endregion

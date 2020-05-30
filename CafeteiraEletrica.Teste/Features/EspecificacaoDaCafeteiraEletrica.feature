@@ -39,7 +39,7 @@ Cenário: Preparado e pronto para consumo
 
 Cenário: O café é consumido por completo
 	Dado o café pronto para consumo
-	Quando identificado o consumido completo
+	Quando identificado o consumo completo
 	Então o ciclo de preparo e finalizado
 
 Cenário: Enquanto não consumido por completo
