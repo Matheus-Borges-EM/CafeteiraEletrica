@@ -19,9 +19,9 @@ namespace CafeteiraEletrica
             }
         }
 
-        public override void FinalizePreparo()
+        internal override void FinalizePreparo()
         {
-            
+            _api.SetIndicatorState(IndicatorState.ON);            
         }
     }
 }

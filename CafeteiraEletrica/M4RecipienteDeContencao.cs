@@ -39,7 +39,7 @@ namespace CafeteiraEletrica
 
         public override void FinalizePreparo()
         {
-            
+            _api.SetWarmerState(WarmerState.ON);                        
         }
     }
 }

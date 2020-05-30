@@ -124,9 +124,8 @@ namespace CafeteiraEletrica.Teste.Steps
         {
             _coffeeMakerApi.SetWarmerPlateStatus(WarmerPlateStatus.POT_NOT_EMPTY);
             _coffeeMakerApi.SetBoilerStatus(BoilerStatus.EMPTY);
-            _fonteDeAguaQuente.FinalizePreparo();
-            _recipienteDeContencao.FinalizePreparo();
-            _interfaceDoUsuario.FinalizePreparo();
+            _fonteDeAguaQuente.Inicio(_interfaceDoUsuario, _recipienteDeContencao);
+            _fonteDeAguaQuente.FinalizarPreparo();
         }
 
         [When(@"identificado o consumido completo")]
@@ -202,7 +201,7 @@ namespace CafeteiraEletrica.Teste.Steps
             Assert.That(_coffeeMakerApi.GetWarmerPlateStatus(), Is.EqualTo(WarmerPlateStatus.POT_NOT_EMPTY));
             Assert.That(_coffeeMakerApi.GetWarmerState(), Is.EqualTo(WarmerState.ON));
             Assert.That(_coffeeMakerApi.GetIndicatorState(), Is.EqualTo(IndicatorState.ON));
-            Assert.That(_coffeeMakerApi.GetBrewButtonStatus(), Is.EqualTo(BrewButtonStatus.NOT_PUSHED));
+            Assert.That(_coffeeMakerApi.GetBrewButtonStatus(), Is.EqualTo(BrewButtonStatus.PUSHED));
         }
 
         [Then(@"o café está pronto para o consumo")]
@@ -214,7 +213,7 @@ namespace CafeteiraEletrica.Teste.Steps
             Assert.That(_coffeeMakerApi.GetWarmerPlateStatus(), Is.EqualTo(WarmerPlateStatus.POT_NOT_EMPTY));
             Assert.That(_coffeeMakerApi.GetWarmerState(), Is.EqualTo(WarmerState.ON));
             Assert.That(_coffeeMakerApi.GetIndicatorState(), Is.EqualTo(IndicatorState.ON));
-            Assert.That(_coffeeMakerApi.GetBrewButtonStatus(), Is.EqualTo(BrewButtonStatus.NOT_PUSHED));
+            Assert.That(_coffeeMakerApi.GetBrewButtonStatus(), Is.EqualTo(BrewButtonStatus.PUSHED));
         }
 
         [Then(@"o ciclo de preparo e finalizado")]

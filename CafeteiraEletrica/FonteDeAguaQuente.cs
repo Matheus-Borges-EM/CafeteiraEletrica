@@ -8,11 +8,21 @@ namespace CafeteiraEletrica
 
         protected bool EstaPreparando;
 
+        public void Inicio(InterfaceDoUsuario interfaceDoUsuario, RecipienteDeContencao recipienteDeContencao)
+        {
+            _interfaceDoUsuario = interfaceDoUsuario;
+            _recipienteDeContencao = recipienteDeContencao;
+        }
+
         protected internal abstract bool EstaPronto { get; }
 
         internal abstract void Prepare();
 
-        public abstract void FinalizePreparo();
+        private protected void FinalizePreparo()
+        {
+            _interfaceDoUsuario.FinalizePreparo();
+            _recipienteDeContencao.FinalizePreparo();
+        }
 
         internal abstract void InterrompaProducao();
     }

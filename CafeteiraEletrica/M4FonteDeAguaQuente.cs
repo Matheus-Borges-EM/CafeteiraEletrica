@@ -37,9 +37,11 @@ namespace CafeteiraEletrica
             EstaPreparando = true;
         }
 
-        public override void FinalizePreparo()
+        public void FinalizarPreparo()
         {
-            
+            _api.SetReliefValveState(ReliefValveState.OPEN);
+            _api.SetBoilerState(BoilerState.OFF);
+            FinalizePreparo();
         }
     }
 }
