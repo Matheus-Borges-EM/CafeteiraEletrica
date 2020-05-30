@@ -36,7 +36,6 @@ Cenário: Preparado e pronto para consumo
 	Dado que o preparo do café foi iniciado
 	Quando comcluido o preparo do café
 	Então o café está pronto para o consumo
-	E mantido aquecido até ser consumido por completo
 
 Cenário: O café é consumido por completo
 	Dado o café pronto para consumo
@@ -46,4 +45,4 @@ Cenário: O café é consumido por completo
 Cenário: Enquanto não consumido por completo
 	Dado o café pronto para consumo
 	Quando identificado que ainda não foi consumido por completo
-	Então mantido aquecido até ser consumo por completo
+	Então mantido aquecido até ser consumido por completo
