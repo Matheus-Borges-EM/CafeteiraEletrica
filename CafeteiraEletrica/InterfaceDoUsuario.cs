@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace CafeteiraEletrica
 {
     public abstract class InterfaceDoUsuario
@@ -22,5 +24,8 @@ namespace CafeteiraEletrica
                 _recipienteDeContencao.Prepare();
             }
         }
+
+        internal abstract void FinalizeCicloDePreparo();
+
     }
 }

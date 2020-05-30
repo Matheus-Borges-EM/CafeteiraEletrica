@@ -41,5 +41,10 @@ namespace CafeteiraEletrica
         {
             _api.SetWarmerState(WarmerState.ON);                        
         }
+
+        public void CafeConsumidoPorCompleto()
+        {
+            FinalizeCicloDePreparo();
+        }
     }
 }

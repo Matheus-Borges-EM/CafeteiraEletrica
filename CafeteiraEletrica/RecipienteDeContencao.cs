@@ -22,6 +22,12 @@
 
         public abstract void FinalizePreparo();
 
+        private protected void FinalizeCicloDePreparo()
+        {
+            _interfaceDoUsuario.FinalizeCicloDePreparo();            
+            _fonteDeAguaQuente.FinalizeCicloDePreparo();            
+        }
+
         private protected void InterrompaProducao()
         {
             _fonteDeAguaQuente.InterrompaProducao();

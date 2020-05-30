@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace CafeteiraEletrica
 {
     public abstract class FonteDeAguaQuente
@@ -25,5 +26,10 @@ namespace CafeteiraEletrica
         }
 
         internal abstract void InterrompaProducao();
+
+        internal void FinalizeCicloDePreparo()
+        {
+            
+        }
     }
 }
