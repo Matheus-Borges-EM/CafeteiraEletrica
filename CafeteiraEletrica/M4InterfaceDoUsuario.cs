@@ -18,5 +18,10 @@ namespace CafeteiraEletrica
                 Iniciar();
             }
         }
+
+        public override void FinalizePreparo()
+        {
+            
+        }
     }
 }

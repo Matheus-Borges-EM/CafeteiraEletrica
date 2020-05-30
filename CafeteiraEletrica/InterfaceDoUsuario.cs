@@ -5,6 +5,9 @@ namespace CafeteiraEletrica
     {
         private FonteDeAguaQuente _fonteDeAguaQuente;
         private RecipienteDeContencao _recipienteDeContencao;
+
+        public abstract void FinalizePreparo();
+
         public void Inicio(FonteDeAguaQuente fonteDeAguaQuente, RecipienteDeContencao recipienteDeContencao)
         {
             _fonteDeAguaQuente = fonteDeAguaQuente;

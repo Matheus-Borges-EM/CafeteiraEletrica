@@ -20,6 +20,8 @@
 
         private protected abstract void RecipienteDeContencaoRemovido();
 
+        public abstract void FinalizePreparo();
+
         private protected void InterrompaProducao()
         {
             _fonteDeAguaQuente.InterrompaProducao();

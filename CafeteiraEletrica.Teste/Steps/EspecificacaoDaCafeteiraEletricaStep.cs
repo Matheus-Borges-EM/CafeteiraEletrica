@@ -123,7 +123,10 @@ namespace CafeteiraEletrica.Teste.Steps
         public void WhenComcluidoOPreparoDoCafe()
         {
             _coffeeMakerApi.SetWarmerPlateStatus(WarmerPlateStatus.POT_NOT_EMPTY);
-            _coffeeMakerApi.SetBoilerStatus(BoilerStatus.EMPTY);            
+            _coffeeMakerApi.SetBoilerStatus(BoilerStatus.EMPTY);
+            _fonteDeAguaQuente.FinalizePreparo();
+            _recipienteDeContencao.FinalizePreparo();
+            _interfaceDoUsuario.FinalizePreparo();
         }
 
         [When(@"identificado o consumido completo")]

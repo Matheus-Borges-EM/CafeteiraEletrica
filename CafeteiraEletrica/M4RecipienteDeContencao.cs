@@ -36,5 +36,10 @@ namespace CafeteiraEletrica
             if (EstaPreparando && _api.GetWarmerPlateStatus() != WarmerPlateStatus.WARMER_EMPTY) return;
             RecipienteDeContencaoRemovido();
         }
+
+        public override void FinalizePreparo()
+        {
+            
+        }
     }
 }

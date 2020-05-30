@@ -36,5 +36,10 @@ namespace CafeteiraEletrica
             _api.SetReliefValveState(ReliefValveState.CLOSED);
             EstaPreparando = true;
         }
+
+        public override void FinalizePreparo()
+        {
+            
+        }
     }
 }
