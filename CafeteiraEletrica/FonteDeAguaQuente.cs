@@ -8,12 +8,6 @@ namespace CafeteiraEletrica
 
         protected bool EstaPreparando;
 
-        public void Inicio(InterfaceDoUsuario interfaceDoUsuario, RecipienteDeContencao recipienteDeContencao)
-        {
-            _interfaceDoUsuario = interfaceDoUsuario;
-            _recipienteDeContencao = recipienteDeContencao;
-        }
-
         protected internal abstract bool EstaPronto { get; }
 
         internal abstract void Prepare();
